@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}"/>
+  <title>Realtime app</title>
+</head>
+<body>
+  <h1>Realtime app in Flask</h1>
+  <p>
+  Async mode is: <b>{{ async_mode }}</b><br>
+  Current transport is: <b><span id=transport></span></b><br>
+  Average ping/pong latency: <b><span id="ping-pong">ms</span></b>
+  </p>
+  <h2>Send:</h2>
+  <form id="emit" action="#" method="POST">
+    <input id="emit-data" type="text" name=emit-data placeholder="Message">
+    <input type="submit" value="Echo">
+  </form>
+  <form id="broadcast" action="#" method="POST">
+    <input id="broadcast-data" type="text" name="broadcast-data" placeholder="Message">
+    <input type="submit" value="Broadcast">
+  </form>
+  <form id="join" action="#" method="POST">
+    <input id="join-room" type="text" name="join-room" placeholder="Room name">
+    <input type="submit" value="Join room">
+  </form>
+  <form id="leave" action="#" method="POST">
+    <input id="leave-room" type="text" name="leave-room" placeholder="Room name">
+    <input type="submit" value="Leave room">
+  </form>
+  <form id="send-room" action="#" method="POST">
+    <input id="room-name" type="text" name="room-name" placeholder="Room name">
+    <input id="room-data" type="text" name="room-data" placeholder="Message">
+    <input type="submit" value="Send to room">
+  </form>
+  <form id="close" action="#" method="POST">
+    <input id="close-room" type="text" name="close-room" placeholder="Room name">
+    <input type="submit" value="Close room">
+  </form>
+  <form id="disconnect" action="#" method="POST">
+    <input type="submit" value="Disconnect">
+  </form>
+  <h2>Receive:</h2>
+  <div id="log"></div>
+</body>
+<script src="https://cdn.socket.io/4.1.2/socket.io.min.js" integrity="sha384-toS6mmwu70G0fw54EGlWWeA4z3dyJ+dlXBtSURSKN4vyRFOcxd3Bzjj/AoOwY+Rg" crossorigin="anonymous"></script>
+<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='index.js') }}"></script>
+</html>
