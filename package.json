@@ -3,7 +3,7 @@
     "nodemon": "^2.0.12"
   },
   "scripts": {
-    "start": "nodemon run.py"
+    "start": "nodemon run.py localhost 5000"
   },
   "dependencies": {}
 }
